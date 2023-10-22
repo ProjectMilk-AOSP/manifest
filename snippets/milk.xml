@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="github"
+           fetch="https://github.com/" />
+
+  <remote  name="gitlab"
+           fetch="https://gitlab.com/" />
+
+   <remote  name="milk"
+           fetch="https://github.com/ProjectMilk-AOSP/"
+           revision="14" />
+
+   <remote  name="ProjectMilk-Devices"
+           fetch="https://github.com/ProjectMilk-Devices/"
+           revision="14" />   
+
+   <remote  name="kdragon"
+           fetch="https://github.com/kdrag0n/"
+           revision="master" />
+	
+   <remote  name="milk-gitlab"
+           fetch="https://gitlab.com/projectmilk"
+	         revision="refs/heads/14" />
+   
+   <remote  name="lineage"
+           fetch="https://github.com/LineageOS"
+           revision="lineage-20.0" />
+
+  <project path="android" name="manifest" remote="milk" />
+  <project path="art" name="art" groups="pdk" remote="milk"/>
+  <project path="bionic" name="bionic" groups="pdk" remote="milk"/>
+  <project path="build/make" name="build_make" groups="pdk"  remote="milk" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/soong" name="build_soong" groups="pdk,tradefed" remote="milk" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+  <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="milk" />
+
+  <!-- device repos -->
+  <project path="device/milk/sepolicy" name="device_milk_sepolicy" remote="milk" />
+  <project path="device/qcom/sepolicy" name="device_qcom_sepolicy" remote="milk" />
+  <project path="device/qcom/common" name="device_qcom_common" remote="milk" />
+  <project path="device/qcom/sepolicy_vndr" name="device_qcom_sepolicy_vndr" remote="milk" />
+  <project path="device/qcom/sepolicy_vndr-legacy-um" name="device_qcom_sepolicy_vndr-legacy-um" remote="milk" />
+  <project path="device/mediatek/sepolicy_vndr" name="device_mediatek_sepolicy_vndr" remote="milk" />
+  <project path="device/qcom/sepolicy-legacy-um" name="device_qcom_sepolicy-legacy-um" remote="milk" />
+
+  <!-- external repos -->
+  <project path="external/colorkt" name="external_colorkt" remote="milk" />
+  <project path="external/cronet" name="external_cronet" remote="milk-gitlab" />
+  <project path="external/dtc" name="external_dtc" remote="milk" />
+  <project path="external/erofs-utils" name="external_erofs-utils" remote="milk" />
+  <project path="external/exfatprogs" name="external_exfatprogs" remote="milk" />
+  <project path="external/faceunlock" name="external_faceunlock" remote="milk" />
+  <project path="external/gptfdisk" name="external_gptfdisk" remote="milk" />
+  <project path="external/mksh" name="external_mksh" remote="milk" />
+  <project path="external/perfetto" name="external_perfetto" groups="pdk" remote="milk" />
+  <project path="external/selinux" name="external_selinux" groups="pdk" remote="milk" />
+  <project path="external/themelib" name="external_themelib" remote="milk" />
+  <project path="external/tinyxml" name="external_tinyxml" groups="pdk" remote="milk" />
+  <project path="external/xz" name="external_xz" remote="milk" />
+
+  <!-- framework repos -->
+  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="milk" />
+  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="milk" />
+  <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="milk" />
+  <project path="frameworks/libs/net" name="frameworks_libs_net" remote="milk" />
+  <project path="frameworks/libs/systemui" name="frameworks_libs_systemui" remote="milk" />
+  <project path="frameworks/opt/net/ims" name="frameworks_opt_net_ims" groups="frameworks_ims,pdk-cw-fs,pdk-fs" remote="milk" />
+  <project path="frameworks/opt/telephony" name="frameworks_opt_telephony" groups="pdk" remote="milk" /> 
+
+  <!-- hardware repos -->
+  <project path="hardware/xiaomi" name="hardware_xiaomi" groups="pdk" remote="milk" />
+  <project path="hardware/oplus" name="hardware_oplus" groups="pdk" remote="milk" />
+  <project path="hardware/interfaces" name="hardware_interfaces" groups="pdk" remote="milk" />
+  <project path="hardware/ril" name="hardware_ril" groups="pdk" remote="milk" />
+  <project path="hardware/libhardware" name="hardware_libhardware" remote="milk" />
+  <project path="hardware/milk/interfaces" name="hardware_milk_interfaces" group="pkg" remote="milk" />
+  <project path="hardware/qcom-caf/wlan" name="hardware_qcom_wlan" groups="qcom_wlan" remote="milk" />
+   
+  <!-- packages repos -->
+  <!--project path="packages/apps/Aperture" name="packages_apps_Aperture" remote="milk" /-->
+  <project path="packages/apps/Calendar" name="packages_apps_Calendar" groups="pdk" remote="milk" />
+  <project path="packages/apps/Contacts" name="packages_apps_Contacts" groups="pdk" remote="milk" />
+  <project path="packages/apps/milkWallpaperStub" name="packages_apps_MilkWallpaperStub" remote="milk" />
+  <project path="packages/apps/Dialer" name="packages_apps_Dialer" groups="pdk" remote="milk" />
+  <project path="packages/apps/ExactCalculator" name="packages_apps_ExactCalculator" groups="pdk" remote="milk" />
+  <project path="packages/apps/Launcher3" name="packages_apps_Launcher3" groups="pdk-fs" remote="milk" />
+  <project path="packages/apps/Messaging" name="packages_apps_Messaging" groups="pdk" remote="milk" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="milk" />
+  <project path="packages/apps/ThemePicker" name="packages_apps_ThemePicker" groups="pdk-fs" remote="milk" />
+  <project path="packages/apps/WallpaperPicker2" name="packages_apps_WallpaperPicker2" groups="pdk" remote="milk" />
+  <project path="packages/modules/Bluetooth" name="packages_modules_Bluetooth" groups="pdk" remote="milk" />
+  <project path="packages/modules/adb" name="packages_modules_adb" groups="pdk" remote="milk" />
+  <project path="packages/modules/Wifi" name="packages_modules_Wifi" groups="pdk-cw-fs,pdk-fs" remote="milk" />
+  <project path="packages/apps/Nfc" name="packages_apps_Nfc" remote="milk" />
+  <project path="packages/overlays/Themes" name="packages_overlays_Themes" remote="milk" />
+  <project path="packages/services/Telecomm" name="packages_services_Telecomm" remote="milk" />
+  <project path="packages/services/Telephony" name="packages_services_Telephony" remote="milk" />
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" remote="milk-gitlab" />
+  <project path="packages/apps/SettingsIntelligence" name="packages_apps_SettingsIntelligence" remote="milk" />
+  <project path="packages/apps/RepainterServicePriv" name="packages_apps_RepainterServicePriv" remote="milk" />
+
+  <!-- system repos -->
+  <project path="system/bpf" name="system_bpf" groups="pdk" remote="milk" />
+  <project path="system/core" name="system_core" groups="pdk" remote="milk" />
+  <project path="system/libhidl" name="system_libhidl" groups="pdk" remote="milk" />
+  <project path="system/netd" name="system_netd" groups="pdk" remote="milk" />
+  <project path="system/security" name="system_security" groups="pdk" remote="milk" />
+  <project path="system/sepolicy" name="system_sepolicy" remote="milk" />
+  <project path="system/update_engine" name="system_update_engine" remote="milk" />
+  <project path="system/vold" name="system_vold" groups="pdk" remote="milk" />
+
+  <!-- vendor repos -->
+  <project path="vendor/milk" name="vendor_milk" remote="milk" />
+  <!--project path="vendor/nxp/opensource/commonsys/packages/apps/Nfc" name="vendor_nxp_opensource_packages_apps_Nfc"  remote="milk" /-->
+  <project path="vendor/support" name="vendor_support" remote="milk" />	
+  <project path="vendor/qcom/common" name="vendor_qcom_common" remote="milk" />
+  <project path="vendor/codeaurora/telephony" name="vendor_codeaurora_telephony" remote="milk" />
+  <project path="vendor/qcom/opensource/commonsys/display" name="vendor_qcom_opensource_display-commonsys" remote="milk" />
+  <project path="vendor/qcom/opensource/commonsys-intf/display" name="vendor_qcom_opensource_commonsys-intf_display" remote="milk" />
+  <project path="vendor/qcom/opensource/display" name="vendor_qcom_opensource_display" remote="milk" />
+  <project path="vendor/qcom/opensource/vibrator" name="vendor_qcom_opensource_vibrator" remote="milk" />
+	
+  <!-- Custom Clangs -->
+  <project path="prebuilts/clang/host/linux-x86/clang-proton" name="proton-clang" remote="kdragon" clone-depth="1" />
+</manifest>

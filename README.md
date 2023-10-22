@@ -1,12 +1,12 @@
 Getting Started:
  ==============
 
-To get started with Project Blaze, you'll need to get familiar with [Repo](https://source.android.com/source/using-repo.html) and Version Control with [Git](https://source.android.com/source/version-control.html).
+To get started with Project Milk, you'll need to get familiar with [Repo](https://source.android.com/source/using-repo.html) and Version Control with [Git](https://source.android.com/source/version-control.html).
 
 To initialize your local repository, use a command like this:
 
 ```bash
-repo init -u https://github.com/ProjectBlaze/manifest -b 14
+repo init -u https://github.com/rojectMilk-AOSP/manifest -b 14
 ```
 
 Then to sync up:
@@ -16,14 +16,14 @@ repo sync -c -j$(nproc --all) --force-sync --optimized-fetch --no-tags --no-clon
 ```
 
 ---------------------------------------------------------------------------------------
- Compilation of ProjectBlaze:
+ Compilation of ProjectMilk:
  ==================
 
 From root directory of Project, perform following commands in terminal
 
 ```bash
 $ . build/envsetup.sh
-$ lunch blaze_$device-userdebug
+$ lunch milk_$device-userdebug
 $ make bacon
 ```
 NOTE:
@@ -36,3 +36,4 @@ If building for your device, adapt your tree to our configurations. Use this [co
  * [**ProtonAOSP**](https://github.com/ProtonAOSP)
  * [**crDroid**](https://github.com/crdroidandroid)
  * [**PixelExperience**](https://github.com/PixelExperience)
+ * [**ProjectBlaze**](https://github.com/ProjectBlaze)
